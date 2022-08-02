@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState }  from 'react';
 import Alerts  from './components/Alerts';
 import Select from './components/Select';
 import Squares from './components/Squares';
