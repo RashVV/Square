@@ -2,9 +2,18 @@
   text-align: center;
 }
 
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.Table {
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.Field {
+  display: flex;
+  justify-content: center;
 }
