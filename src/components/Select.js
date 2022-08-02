@@ -1,6 +1,6 @@
 import React from 'react';
-import { InputBase, NativeSelect, FormControl, Button } from '@mui/material';
-
+import { NativeSelect, FormControl, Button, InputLabel, Stack } from '@mui/material';
+import '../App.css';
 
 export default function Select({mode, setMode}) {
 
@@ -10,20 +10,23 @@ export default function Select({mode, setMode}) {
     }
 
   return (
-    <div>
-     <FormControl className='stile'>
-    <NativeSelect
-          id="demo-customized-select-native"
+    <div className="Header">
+    <Stack direction="row" spacing={1}>
+     <FormControl variant="standard" >
+      <InputLabel id="label" >Pick mode</InputLabel>
+        <NativeSelect
+          id="selector"
           value={value.field}
           onChange={handleChange}
-          input={<InputBase />}
-        >
+          >
+         <option aria-label="None" value="" />
           {mode.map((value, index) => (
-              <option key={index} value={value.field}>{value.name}</option>
-              ))}
+              <option key={index} value={value.field}>{value.name}</option>))}
         </NativeSelect>
-        </FormControl>
-        <Button>Start</Button>
+     </FormControl>
+     <Button variant="contained" className="Button" style={{
+    top:"15px", height:"42px"}} color="primary">Start</Button>
+     </Stack>
     </div>
   )
 }

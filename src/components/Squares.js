@@ -20,14 +20,14 @@ export default function Squares({mode, setAlerts}) {
       <Table className="Table" aria-label="caption table">
         <TableBody>
           {rows.map((row, index) => (
-            <TableRow  key={index}>
+            <TableRow key={index}>
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell className="Table" align="right">{row.calories}</TableCell>
-              <TableCell className="Table" align="right">{row.fat}</TableCell>
-              <TableCell className="Table" align="right">{row.carbs}</TableCell>
-              <TableCell className="Table" align="right">{row.protein}</TableCell>
+              <TableCell className="Table" >{row.calories}</TableCell>
+              <TableCell className="Table" >{row.fat}</TableCell>
+              <TableCell className="Table" >{row.carbs}</TableCell>
+              <TableCell className="Table" >{row.protein}</TableCell>
             </TableRow>
           ))}
         </TableBody>
