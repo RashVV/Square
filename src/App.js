@@ -42,15 +42,13 @@ function App() {
     <div className="App">
       <Select  mode={data} setMode={setMode} />
       <div className='Field'>
-    {mode && (
+      {mode && (
       <>
       <Squares squares={squares} mode={mode} setSquares={setSquares} />
-       <Alerts alerts={squares} />
-      </>
-    )}
-
-      </div>
+      <Alerts alerts={squares} />
+      </>)}
     </div>
+  </div>
   );
 }
 

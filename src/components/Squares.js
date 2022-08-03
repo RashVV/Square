@@ -1,8 +1,8 @@
 import React from 'react';
-import { TableContainer, Table, TableBody, TableRow, TableCell, collapseClasses, } from '@mui/material';
+import { TableContainer, Table, TableBody, TableRow, TableCell } from '@mui/material';
 import '../App.css';
 
-function createData(index, mode) {
+function createMineField(index, mode) {
   const squares=[]
   for (let i=0; i<+mode; i++) {
     squares.push(i);
@@ -16,9 +16,8 @@ function createData(index, mode) {
 
 export default function Squares({mode, setAlerts}) {
   const rows = [];
-  for (let index = 0; index < +mode; index++) {
-    rows.push(createData(index, mode)
-    )
+    for (let index = 0; index < +mode; index++) {
+      rows.push(createMineField(index, mode))
   }
   debugger
   return (
@@ -27,9 +26,9 @@ export default function Squares({mode, setAlerts}) {
       <Table className="Table" aria-label="caption table">
         <TableBody>
           {rows.map(({col, rows}, index) => (
-            <TableRow key={index}>
+            <TableRow key={index} id={"рядок:" + (col+1)}>
             {rows.map((row) => (
-              <TableCell component="th" scope="row" className="Table" key={row}></TableCell>
+              <TableCell component="th" scope={row+1} className="Table" key={row} />
             ))}
             </TableRow>
           ))}
