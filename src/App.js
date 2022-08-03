@@ -5,7 +5,7 @@ import Squares from './components/Squares';
 import './App.css';
 
 function App() {
-  const [mode, setMode] = useState([]);
+  const [mode, setMode] = useState(0);
   const [squares, setSquares] = useState([]);
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true);
@@ -42,8 +42,13 @@ function App() {
     <div className="App">
       <Select  mode={data} setMode={setMode} />
       <div className='Field'>
-       <Squares squares={squares} setSquares={setSquares} />
+    {mode && (
+      <>
+      <Squares squares={squares} mode={mode} setSquares={setSquares} />
        <Alerts alerts={squares} />
+      </>
+    )}
+
       </div>
     </div>
   );

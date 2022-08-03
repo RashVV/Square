@@ -1,33 +1,36 @@
 import React from 'react';
-import { TableContainer, Table, TableBody, TableRow, TableCell, } from '@mui/material';
+import { TableContainer, Table, TableBody, TableRow, TableCell, collapseClasses, } from '@mui/material';
 import '../App.css';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(index, mode) {
+  const squares=[]
+  for (let i=0; i<+mode; i++) {
+    squares.push(i);
 }
-const rows = [
-  createData('', ),
-  createData('', ),
-  createData('', ),
-  createData('', ),
-  createData('', ),
-];
+  return {
+    col: index,
+    rows: squares
+  }
+}
+
 
 export default function Squares({mode, setAlerts}) {
+  const rows = [];
+  for (let index = 0; index < +mode; index++) {
+    rows.push(createData(index, mode)
+    )
+  }
+  debugger
   return (
     <div className="Table" align="center" >
-     <TableContainer component={mode}>
+     <TableContainer >
       <Table className="Table" aria-label="caption table">
         <TableBody>
-          {rows.map((row, index) => (
+          {rows.map(({col, rows}, index) => (
             <TableRow key={index}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell className="Table" >{row.calories}</TableCell>
-              <TableCell className="Table" >{row.fat}</TableCell>
-              <TableCell className="Table" >{row.carbs}</TableCell>
-              <TableCell className="Table" >{row.protein}</TableCell>
+            {rows.map((row) => (
+              <TableCell component="th" scope="row" className="Table" key={row}></TableCell>
+            ))}
             </TableRow>
           ))}
         </TableBody>

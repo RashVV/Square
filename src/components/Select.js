@@ -7,6 +7,7 @@ export default function Select({mode, setMode}) {
     const [value, setValue] = React.useState([]);
     const handleChange = (event) => {
       setValue(event.target.value);
+      setMode(event.target.value);
     }
 
   return (
