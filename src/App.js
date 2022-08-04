@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from 'react';
 import Alerts  from './components/Alerts';
-import Select from './components/Select';
+import Selector from './components/Selector';
 import Squares from './components/Squares';
 import './App.css';
 
@@ -34,13 +34,15 @@ function App() {
   }
   getData()
  }, []);
+ console.log('Data:', data);
  console.log('Error:', error);
  console.log('Mode:', mode);
  console.log('Loading:', loading);
+ console.log('Squares:', squares);
 
   return (
     <div className="App">
-      <Select  mode={data} setMode={setMode} />
+      <Selector  mode={data} setMode={setMode} setSquares={setSquares}/>
       <div className='Field'>
       {mode && (
       <>

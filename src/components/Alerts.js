@@ -4,12 +4,26 @@ import '../App.css';
 
 
 export default function Alerts({alerts}) {
+
   return (
   <div className="Alerts">
   <h1>Hover Squares</h1>
-  <Alert severity="warning">
-  This is a warning alert — check it out!
+  {alerts.map(({row, col, isActive}) => (
+    <>
+
+    {!isActive && (
+      <Alert key={alerts.id} severity="warning">
+  {`Row: ${row} Col: ${col}`}
   </Alert>
+    )}
+
+
+    </>
+
+  ))
+
+  }
+
   </div>
   )
 }
