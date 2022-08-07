@@ -5,11 +5,12 @@ import Squares from './components/Squares';
 import './App.css';
 
 function App() {
-  const [mode, setMode] = useState(0);
+  const [mode, setMode] = useState();
   const [squares, setSquares] = useState([]);
   const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [, setLoading] = useState(true);
+  const [, setError] = useState(null);
+  const [rows, setRows] = useState([]);
 
  useEffect(() => {
    const getData = async () => {
@@ -34,23 +35,19 @@ function App() {
   }
   getData()
  }, []);
- console.log('Data:', data);
- console.log('Error:', error);
- console.log('Mode:', mode);
- console.log('Loading:', loading);
- console.log('Squares:', squares);
 
   return (
     <div className="App">
-      <Selector  mode={data} setMode={setMode} setSquares={setSquares}/>
+      <Selector  mode={data} setMode={setMode} setSquares={setSquares} setRows={setRows} />
       <div className='Field'>
-      {mode && (
-      <>
-      <Squares squares={squares} mode={mode} setSquares={setSquares} />
-      <Alerts alerts={squares} />
-      </>)}
+        {mode && (
+          <>
+            <Squares squares={squares} mode={mode} setSquares={setSquares} setRows={setRows} rows={rows} />
+            <Alerts alerts={squares} />
+          </>
+        )}
+      </div>
     </div>
-  </div>
   );
 }
 

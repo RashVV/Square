@@ -16,33 +16,29 @@ function createMineField(index, mode) {
   }
 }
 
-
-
-export default function Squares({mode, setSquares, squares}) {
-  const [rows, setRows] = React.useState([]);
-
+export default function Squares({mode, setSquares, squares, setRows, rows}) {
   if(!squares.length) {
+    rows=[]
     for (let index = 1; index <= +mode; index++) {
       rows.push(createMineField(index, mode))
-    }
-  }
-
+   }
+ }
   const onCellClick = (row, col, isActive) => {
     setSquares(prevState => [...prevState, {row, col, isActive}] );
-      const newData = [];
-        rows.forEach((c, i) => {
-          if(c.col === row) {
-            newData.push(c)
-              c.rows.forEach((r, j) => {
-                if(r.row === col) {
-                  newData[i].rows[j] = {...r, isActive:!isActive}
-                }
-              })
-            } else {
-              newData.push(c)
-          }})
-            setRows(newData);
-          }
+    const newData = [];
+    rows.forEach((c, i) => {
+      if(c.col === row) {
+        newData.push(c)
+          c.rows.forEach((r, j) => {
+            if(r.row === col) {
+              newData[i].rows[j] = {...r, isActive:!isActive}
+            }
+          })
+        } else {
+          newData.push(c)
+        }})
+      setRows(newData);
+    }
     return (
       <div>
         <TableContainer >
