@@ -16,7 +16,7 @@ function App() {
    const getData = async () => {
     try {
       const response = await fetch(
-        'http://demo7919674.mockable.io'
+        'https://demo7919674.mockable.io'
       );
       if (!response.ok) {
         throw new Error(
