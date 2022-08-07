@@ -55,6 +55,9 @@ td {
 .MuiTableRow-root :hover {
   background-color: rgb(3,168,244);
 }
+.MuiTableRow-root :hover :active {
+  background-color: rgb(255,255,255);
+}
 .MuiFormControl-root {
   width: 10.9375rem;
   margin-right: 12px;
